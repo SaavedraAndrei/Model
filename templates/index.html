@@ -5,30 +5,56 @@
   <meta charset="UTF-8">
   <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-  
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+
 </head>
 
 <body>
- <div class="login">
-	<h1>Predicción del Promedio Final del Alumno</h1>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-      <input type="text" name="test_score" placeholder="Test Score" required="required" />
-	  	<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
+  <main class="contenedor">
+    <div class="contenedor-textos">
+      <h1 class="titulo">Sistema Inteligente de Predicción y Optimización del Rendimiento de Estudiantes</h1>
+      <h2 class="subtitulo">El sistema se basa en la predicción del promedio final del estudiantes en base a las variables más importantes que determinan su puntaje</h2>
+    </div>
+    <div class="contenedor-imagen">
+      <img class="imagen" src="{{ url_for('static',filename='styles/img1.svg') }}" alt="Imagen de análisis">
+    </div>
+  </main>
 
-      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
 
-   <br>
-   <br>
-   {{ prediction_text }}
+  <div class="body">
+    <h1 class="body-prin">Predicción del Promedio Final</h1>
 
- </div>
+    <div class="body-contenedor">
+    <h3 class="body-titulo">Ingrese la información requerida</h3>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="POST">
+
+        <input class="form-control col-4" type="number" name="edad" placeholder="Ingrese la edad del estudiante" required="required" />
+        <input class="form-control col-4" type="number" name="genero" placeholder="Ingrese el número del género (Masculino: 1 y Femenino: 0)" required="required" />
+        <input class="form-control col-4" type="number" name="prom1" placeholder="Ingrese el promedio del primer bimestre" required="required" />
+        <input class="form-control col-4" type="number" name="prom2" placeholder="Ingrese el promedio del segundo bimestre" required="required" />
+        <input class="form-control col-4" type="number" name="prom3" placeholder="Ingrese el promedio del tercer bimestre" required="required" />
+        <input class="form-control col-4" type="number" name="prom4" placeholder="Ingrese el promedio del cuarto bimestre" required="required" />
+        <input class="form-control col-4" type="number" name="curaprob" placeholder="Ingrese los cursos aprobados" required="required" />
+        <input class="form-control col-4" type="number" name="conducta" placeholder="Ingrese la conducta del estudiante" required="required" />
+        <input class="form-control col-4" type="number" name="tardanzas" placeholder="Ingrese las tardanzas del estudiante" required="required" />
+        <input class="form-control col-4" type="number" name="inasistencias" placeholder="Ingrese las inasistencias del estudiante" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block col-4">Predecir el promedio final</button>
+      </form>
+
+      <br>
+      <br>
+      <h3 class="prediccion">{{ prediction_text }}</h3>
+    </div>
+
+  </div>
 
 
 </body>
