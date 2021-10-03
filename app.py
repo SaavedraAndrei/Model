@@ -3,8 +3,8 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('model_03.pickle', 'rb'))
-local_scaler = pickle.load(open('sc_03.pickle', 'rb'))
+model = pickle.load(open('model_04.pickle', 'rb'))
+local_scaler = pickle.load(open('sc_04.pickle', 'rb'))
 
 @app.route('/')
 def home():

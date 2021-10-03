@@ -3,6 +3,7 @@
 <!--From https://codepen.io/frytyler/pen/EGdtg-->
 <head>
   <meta charset="UTF-8">
+  <script src="https://kit.fontawesome.com/bf5a8f5b5b.js" crossorigin="anonymous"></script>
   <title>ML API</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
@@ -10,21 +11,87 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+  <div class="logo">
+    <img class="logo-imagen" src="{{ url_for('static',filename='styles/img2.png') }}" alt="LOGO" width="100" height="50">
+  </div>
+
   <main class="contenedor">
     <div class="contenedor-textos">
       <h1 class="titulo">Sistema Inteligente de Predicción y Optimización del Rendimiento de Estudiantes</h1>
-      <h2 class="subtitulo">El sistema se basa en la predicción del promedio final del estudiantes en base a las variables más importantes que determinan su puntaje</h2>
+      <h2 class="subtitulo">
+        El sistema se basa en la predicción del rendimiento del estudiante del nivel secundario
+        en diferentes tiempos y etapas que nos ayudarán a garantizar el buen rendimiento durante 
+        el periodo académico. De esta manera, se seleccionaron las variables más resaltantes del 
+        estudiante en las cuales se aplicarán diferentes modelos y algoritmos de aprendizaje 
+        automático.
+      </h2>
     </div>
     <div class="contenedor-imagen">
       <img class="imagen" src="{{ url_for('static',filename='styles/img1.svg') }}" alt="Imagen de análisis">
     </div>
   </main>
 
+  <div class="cards">
+    <h2 class="c-title">Cuál es el objetivo de este proyecto?</h2>
+
+    <div class="card-container">
+      <div class="card">
+        <h3>Predicción</h3>
+        <i class="fas fa-chart-line"></i>
+        <p>
+          En base a los diferentes métodos y técnicas de ML
+          que aplicaremos sobre la información de los estudiantes 
+          pretendemos predecir las variables de interés con una precisión 
+          del 70%. De esta manera, buscamos garantizar que los resultados 
+          de este proyecto tengan un cierto impacto. 
+        </p>
+      </div>
+      <div class="card">
+        <h3>Optimización</h3>
+        <i class="fas fa-user-graduate"></i>
+        <p>
+          Los resultados de predicción permitirán a las diferentes entidades
+          tomar decisiones estrategicamente para mejorar el rendimiento de los 
+          estudiantes identificando variables que podrían ser potenciadas y garantizar 
+          un buen desenvolvimiento durante la etapa académica.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Investigación</h3>
+        <i class="fas fa-microscope"></i>
+        <p>
+          El proyecto busca promover el estudio de más variables que afecten el rendimiento
+          del estudiante en el ámbito sociodemográfico y socioeconómico que contribuyan a mejorar la 
+          precisión de la predicción e indirectamente se promueva un mejor rendimiento en el ámbito
+          académico
+        </p>
+      </div>
+    </div>
+
+    </div>
+    
+  <div class="descr-container">
+    <div class="descripcion">
+      <h1>Modelo de Regresión Lineal</h1>
+      <h2>
+        El siguiente modelo de predicción se basa en las variables más relevantes obtenidas durante
+        el año académico. De esta manera, pretendemos predecir el promedio final del estudiante por medio
+        de un modelo de regresión lineal. En caso de no tener alguno de los datos, ingrese un dato posible en base 
+        al historial del estudiante.
+      </h2>
+      
+      <i class="fab fa-uncharted"></i>
+  
+    </div>
+  </div>
+  
 
   <div class="body">
     <h1 class="body-prin">Predicción del Promedio Final</h1>
@@ -41,7 +108,6 @@
         <input class="form-control col-4" type="number" name="prom2" placeholder="Ingrese el promedio del segundo bimestre" required="required" />
         <input class="form-control col-4" type="number" name="prom3" placeholder="Ingrese el promedio del tercer bimestre" required="required" />
         <input class="form-control col-4" type="number" name="prom4" placeholder="Ingrese el promedio del cuarto bimestre" required="required" />
-        <input class="form-control col-4" type="number" name="curaprob" placeholder="Ingrese los cursos aprobados" required="required" />
         <input class="form-control col-4" type="number" name="conducta" placeholder="Ingrese la conducta del estudiante" required="required" />
         <input class="form-control col-4" type="number" name="tardanzas" placeholder="Ingrese las tardanzas del estudiante" required="required" />
         <input class="form-control col-4" type="number" name="inasistencias" placeholder="Ingrese las inasistencias del estudiante" required="required" />
@@ -53,6 +119,8 @@
       <br>
       <h3 class="prediccion">{{ prediction_text }}</h3>
     </div>
+
+    
 
   </div>
 
